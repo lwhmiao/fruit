@@ -655,9 +655,13 @@ const App = () => {
                 
                 <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
                     <div className="glass-panel" style={{ padding: '10px 20px', display: 'flex', gap: '5px', minWidth: 'auto' }}>
-                        {/* Fix for Android: Use stable Array Mapping instead of String.repeat + split which can break emojis */}
+                        {/* Fix for Android: Use stable Array Mapping. Using CSS filter for grayscale to ensure it works on Android emoji bitmaps */}
                         {[0, 1, 2].map((i) => (
-                            <span key={i} style={{ fontSize: '2rem', color: i < lives ? '#ff7675' : '#eee' }}>❤</span>
+                            <span key={i} style={{ 
+                                fontSize: '2rem', 
+                                color: '#ff7675', 
+                                filter: i < lives ? 'none' : 'grayscale(100%) opacity(0.5)'
+                            }}>❤</span>
                         ))}
                     </div>
                     

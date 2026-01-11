@@ -1,0 +1,169 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Zcool+KuaiLe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Zcool KuaiLe', 'Fredoka One', cursive, sans-serif;
+  /* Even Lighter Wooden Background - Nearly White/Cream */
+  background-color: #fffdf5;
+  background-image: 
+    linear-gradient(90deg, rgba(230, 210, 180, 0.1) 50%, transparent 50%),
+    linear-gradient(rgba(230, 210, 180, 0.1) 50%, transparent 50%);
+  background-size: 80px 80px;
+  box-shadow: inset 0 0 100px rgba(240, 230, 200, 0.4);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(200, 200, 200, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.9);
+  color: #666;
+  transition: transform 0.2s;
+  padding: 40px;
+  /* Wider desktop default */
+  min-width: 400px; 
+}
+
+/* Mobile Optimization */
+@media (max-width: 600px) {
+  .glass-panel {
+    padding: 25px !important;
+    width: 85% !important;
+    min-width: auto !important; /* Reset min-width for mobile */
+    max-width: 340px;
+  }
+  .title-text {
+    font-size: 3.2rem !important;
+  }
+  .glass-btn {
+    padding: 12px 25px !important;
+    font-size: 1.4rem !important;
+  }
+}
+
+/* Cute Buttons */
+.glass-btn {
+  background: rgba(255, 255, 255, 0.8);
+  border: 3px solid #fff;
+  padding: 15px 45px;
+  border-radius: 60px;
+  font-size: 1.8rem;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-family: 'Zcool KuaiLe', cursive;
+  box-shadow: 0 6px 0px rgba(0,0,0,0.05), 0 12px 24px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  white-space: nowrap;
+}
+
+/* Fix for icon buttons on mobile to prevent padding from crushing the icon */
+.glass-btn.icon-btn {
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Pastel Colors (Desaturated) */
+.btn-green { background: #dff9fb; color: #535c68; box-shadow: 0 5px 0 #c7ecee; }
+.btn-orange { background: #ffeaa7; color: #b33939; box-shadow: 0 5px 0 #fdcb6e; }
+.btn-blue { background: #dbeaff; color: #2c3a47; box-shadow: 0 5px 0 #c7d9f7; }
+.btn-red { background: #fab1a0; color: #2d3436; box-shadow: 0 5px 0 #e17055; }
+
+.glass-btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.02);
+}
+
+.glass-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 0 transparent;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 4px #fff;
+  text-shadow: 3px 3px 0px rgba(0,0,0,0.05);
+  paint-order: stroke fill;
+  font-weight: 900;
+}
+
+.title-text {
+  font-size: 5rem;
+  color: #ff9ff3;
+  text-shadow: 5px 5px 0px #fff;
+  transform: rotate(-3deg);
+  margin-bottom: 25px;
+  line-height: 1.2;
+}
+
+/* Input Styling */
+.glass-input {
+    padding: 15px;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    border: 3px solid #fff;
+    background: rgba(255,255,255,0.8);
+    outline: none;
+    text-align: center;
+    width: 220px;
+    color: #777;
+    font-family: 'Zcool KuaiLe', cursive;
+    transition: all 0.3s;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.glass-input:focus {
+    background: #fff;
+    transform: scale(1.02);
+    border-color: #ff9ff3;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10%, 90% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20%, 80% { transform: translate(-3px, 0px) rotate(1deg); }
+  30%, 50%, 70% { transform: translate(3px, 2px) rotate(0deg); }
+  40%, 60% { transform: translate(1px, -1px) rotate(1deg); }
+}
+
+.shake {
+  animation: shake 0.5s;
+}
+
+.wood-grain {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.01) 0px, rgba(0,0,0,0.01) 2px, transparent 2px, transparent 8px);
+    pointer-events: none;
+    z-index: 0;
+}

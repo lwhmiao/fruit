@@ -655,11 +655,11 @@ const App = () => {
                 
                 <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }}>
                     <div className="glass-panel" style={{ padding: '10px 20px', display: 'flex', gap: '5px', minWidth: 'auto' }}>
-                        {'❤'.repeat(lives).split('').map((h, i) => (
-                            <span key={i} style={{ fontSize: '2rem', color: '#ff7675' }}>❤</span>
+                        {'❤'.repeat(Math.max(0, lives)).split('').map((h, i) => (
+                            <span key={`live-${i}`} style={{ fontSize: '2rem', color: '#ff7675' }}>❤</span>
                         ))}
-                        {'❤'.repeat(3 - lives).split('').map((h, i) => (
-                             <span key={i} style={{ fontSize: '2rem', color: '#eee' }}>❤</span>
+                        {'❤'.repeat(Math.max(0, 3 - Math.max(0, lives))).split('').map((h, i) => (
+                             <span key={`empty-${i}`} style={{ fontSize: '2rem', color: '#eee' }}>❤</span>
                         ))}
                     </div>
                     
